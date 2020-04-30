@@ -14,5 +14,24 @@ $mpdf = new \Mpdf\Mpdf();
 //Create PDF
 $data = '';
 
-$data
+$data.='<h1>Your Details</h1>';
+
+//Add Data
+
+$data.='<strong>First Name</strong>'.$fname.'<br>';
+$data.='<strong>Last Name</strong>'.$fname.'<br>';
+$data.='<strong>Email</strong>'.$fname.'<br>';
+$data.='<strong>Phone</strong>'.$fname.'<br>';
+
+if($message)
+{
+    $data.='<br><strong>Message</strong><br>'.$message;
+}
+
+//Write PDF
+$mpdf->WriteHTML($data);
+
+
+//Output
+$mpdf->Output('myfile.pdf','D'); 
 ?>
